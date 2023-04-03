@@ -8,6 +8,9 @@ var acceleration = default_acceleration
 var friction = default_friction
 var speed = default_speed
 
+func die():
+	queue_free()
+
 func _physics_process(delta):
 	movement(delta)
 	move_and_slide()
