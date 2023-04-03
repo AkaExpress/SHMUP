@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c5r3n37c0jihi"]
+[gd_scene load_steps=5 format=3 uid="uid://bho1kt1pj7udl"]
 
 [ext_resource type="Script" path="res://Characters/player.gd" id="1_x8dur"]
-[ext_resource type="Texture2D" uid="uid://dyaqoqsnaiyf3" path="res://Sprites/Circle.png" id="2_cr4x8"]
+[ext_resource type="Texture2D" uid="uid://hqbjxjktgexv" path="res://Sprites/Player.png" id="2_cr4x8"]
+[ext_resource type="Script" path="res://health.gd" id="3_bqea0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3cekh"]
 radius = 90.0222
@@ -17,3 +18,6 @@ debug_color = Color(0, 0.6, 0.701961, 0.419608)
 [node name="Circle" type="Sprite2D" parent="."]
 position = Vector2(2.98023e-07, -2.98023e-07)
 texture = ExtResource("2_cr4x8")
+
+[node name="HealthManager" type="Node" parent="."]
+script = ExtResource("3_bqea0")
