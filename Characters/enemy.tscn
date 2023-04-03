@@ -1,11 +1,18 @@
+<<<<<<< HEAD
 [gd_scene load_steps=5 format=3 uid="uid://pyn22bvuldf2"]
 
 [ext_resource type="Script" path="res://Characters/enemy.gd" id="1_gnhln"]
 [ext_resource type="Texture2D" uid="uid://b5th1fg5rv358" path="res://Sprites/Enemy.png" id="2_p68ng"]
 [ext_resource type="Script" path="res://health.gd" id="3_bxis0"]
+=======
+[gd_scene load_steps=4 format=3 uid="uid://b0m4apykejoeo"]
+
+[ext_resource type="Script" path="res://Characters/player.gd" id="1_gi1tf"]
+[ext_resource type="Texture2D" uid="uid://b5th1fg5rv358" path="res://Sprites/Enemy.png" id="2_77xql"]
+>>>>>>> 4cbdfd77dca1502420e206e44aa0f670699b1781
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3cekh"]
-radius = 40.0125
+radius = 28.0
 
 [node name="Enemy" type="CharacterBody2D"]
 scale = Vector2(0.25, 0.25)
@@ -17,7 +24,12 @@ debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="Circle" type="Sprite2D" parent="."]
 position = Vector2(2.98023e-07, -2.98023e-07)
+<<<<<<< HEAD
 texture = ExtResource("2_p68ng")
 
 [node name="HealthManager" type="Node" parent="."]
 script = ExtResource("3_bxis0")
+=======
+scale = Vector2(0.3125, 0.3125)
+texture = ExtResource("2_77xql")
+>>>>>>> 4cbdfd77dca1502420e206e44aa0f670699b1781
