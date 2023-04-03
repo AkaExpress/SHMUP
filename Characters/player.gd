@@ -13,8 +13,8 @@ func _physics_process(delta):
 	move_and_slide()
 
 func movement(delta):
-	var x_direction = Input.get_axis("ui_left", "ui_right")
-	var v_direction = Input.get_axis("ui_up", "ui_down")
+	var x_direction = Input.get_axis("ui_left", "ui_right") # 1, -1
+	var v_direction = Input.get_axis("ui_up", "ui_down") # -1, 1
 	if x_direction:
 		velocity.x += x_direction * acceleration * delta
 	else:
