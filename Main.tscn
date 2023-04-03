@@ -1,9 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://ews2546a3oot"]
+[gd_scene load_steps=4 format=3 uid="uid://ews2546a3oot"]
 
 [ext_resource type="PackedScene" uid="uid://b0m4apykejoeo" path="res://Characters/enemy.tscn" id="1_giuoa"]
-[ext_resource type="PackedScene" uid="uid://7g1l7egnaet0" path="res://Characters/player.tscn" id="2_8taxs"]
+[ext_resource type="PackedScene" uid="uid://bho1kt1pj7udl" path="res://Characters/player.tscn" id="2_8taxs"]
+[ext_resource type="Texture2D" uid="uid://by26361yrecmt" path="res://Sprites/background.png" id="3_b40t4"]
 
 [node name="Main" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -5826.0
+offset_top = -3303.0
+offset_right = 6348.0
+offset_bottom = 3599.0
+texture = ExtResource("3_b40t4")
+stretch_mode = 1
 
 [node name="Enemy" parent="." instance=ExtResource("1_giuoa")]
 position = Vector2(213.392, 116.97)
