@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 const default_speed = 250.0
 const default_acceleration = 2400.0
-const default_friction = 0.15
+const default_friction = 0.05
 
 var acceleration = default_acceleration
 var friction = default_friction
