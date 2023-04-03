@@ -4,9 +4,9 @@ const default_speed = 250.0
 const default_acceleration = 800.0
 const default_friction = 0.35
 
-var acceleration = base_acceleration
-var friction = base_friction
-var speed = base_speed
+var acceleration = default_acceleration
+var friction = default_friction
+var speed = default_speed
 
 func _physics_process(delta):
 	movement(delta)
