@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://c71s3g10uciq2"]
+[gd_scene load_steps=4 format=3 uid="uid://b0m4apykejoeo"]
 
 [ext_resource type="Script" path="res://Characters/player.gd" id="1_gi1tf"]
-[ext_resource type="Texture2D" uid="uid://hqbjxjktgexv" path="res://Sprites/Player.png" id="2_i4fov"]
+[ext_resource type="Texture2D" uid="uid://b5th1fg5rv358" path="res://Sprites/Enemy.png" id="2_77xql"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3cekh"]
-radius = 40.0125
+radius = 28.0
 
 [node name="Enemy" type="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)
@@ -17,4 +17,4 @@ debug_color = Color(0, 0.6, 0.701961, 0.419608)
 [node name="Circle" type="Sprite2D" parent="."]
 position = Vector2(2.98023e-07, -2.98023e-07)
 scale = Vector2(0.3125, 0.3125)
-texture = ExtResource("2_i4fov")
+texture = ExtResource("2_77xql")
