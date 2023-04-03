@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var maxHealth = 100
 
-@export var health = 100
+var health = 100
 
 func hit(damage):
 	health = clampHealth(health - damage)
