@@ -1,14 +1,21 @@
+<<<<<<< HEAD
 [gd_scene load_steps=4 format=3 uid="uid://b0m4apykejoeo"]
 
 [ext_resource type="Script" path="res://Characters/player.gd" id="1_gi1tf"]
 [ext_resource type="Texture2D" uid="uid://b5th1fg5rv358" path="res://Sprites/Enemy.png" id="2_77xql"]
+=======
+[gd_scene load_steps=4 format=3 uid="uid://pyn22bvuldf2"]
+
+[ext_resource type="Script" path="res://Characters/enemy.gd" id="1_gnhln"]
+[ext_resource type="Texture2D" uid="uid://b5th1fg5rv358" path="res://Sprites/Enemy.png" id="2_p68ng"]
+>>>>>>> edd019739f27805e2e50a5e9c454b67bec879a44
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3cekh"]
 radius = 28.0
 
 [node name="Enemy" type="CharacterBody2D"]
-scale = Vector2(0.5, 0.5)
-script = ExtResource("1_gi1tf")
+scale = Vector2(0.25, 0.25)
+script = ExtResource("1_gnhln")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_3cekh")
@@ -16,5 +23,9 @@ debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="Circle" type="Sprite2D" parent="."]
 position = Vector2(2.98023e-07, -2.98023e-07)
+<<<<<<< HEAD
 scale = Vector2(0.3125, 0.3125)
 texture = ExtResource("2_77xql")
+=======
+texture = ExtResource("2_p68ng")
+>>>>>>> edd019739f27805e2e50a5e9c454b67bec879a44
