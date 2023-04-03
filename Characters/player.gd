@@ -12,12 +12,14 @@ func die():
 	queue_free()
 
 func _physics_process(delta):
+	cursor_follow()
 	movement(delta)
 	move_and_slide()
 
 func movement(delta):
-	var x_direction = Input.get_axis("ui_left", "ui_right") # 1, -1
-	var v_direction = Input.get_axis("ui_up", "ui_down") # -1, 1
+	# velocity += direction * acceleration * delta
+	var x_direction = Input.get_axis("move_left", "move_right") # 1, -1
+	var v_direction = Input.get_axis("move_up", "move_down") # -1, 1
 	if x_direction:
 		velocity.x += x_direction * acceleration * delta
 	else:
@@ -28,3 +30,8 @@ func movement(delta):
 		velocity.y = lerp(velocity.y, 0.00, friction)
 	velocity.x = clamp(velocity.x, -speed, speed)
 	velocity.y = clamp(velocity.y, -speed, speed)
+
+func cursor_follow():
+	var target = get_global_mouse_position()
+	look_at(target)
+
