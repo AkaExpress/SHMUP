@@ -3,10 +3,15 @@ extends CharacterBody2D
 const default_speed = 250.0
 const default_acceleration = 2400.0
 const default_friction = 0.05
+const default_damage = 5.0
+const bullet_path = preload("res://Characters/enemy.tscn")
 
 var acceleration = default_acceleration
 var friction = default_friction
 var speed = default_speed
+var damage = default_damage
+
+var can_shoot = true
 
 func die():
 	queue_free()
@@ -15,6 +20,8 @@ func _physics_process(delta):
 	cursor_follow()
 	movement(delta)
 	move_and_slide()
+	if Input.is_action_pressed("shoot"):
+		shoot()
 
 func movement(delta):
 	# velocity += direction * acceleration * delta
@@ -34,4 +41,13 @@ func movement(delta):
 func cursor_follow():
 	var target = get_global_mouse_position()
 	look_at(target)
+
+func shoot():
+	if can_shoot:
+		can_shoot = false
+		var bullet = bullet_path.instance()
+		get_parent().add_child(bullet)
+		bullet.position = $Node2D.position
+		await(get_tree().create_timer(0.5).timeout)
+		can_shoot = true
 

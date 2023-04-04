@@ -23,3 +23,6 @@ texture = SubResource("CompressedTexture2D_42k4f")
 
 [node name="HealthManager" type="Node" parent="."]
 script = ExtResource("3_bqea0")
+
+[node name="BulletPosition" type="Node2D" parent="."]
+position = Vector2(176, 0)
