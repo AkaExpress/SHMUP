@@ -4,12 +4,14 @@ const default_speed = 250.0
 const default_acceleration = 2400.0
 const default_friction = 0.05
 const default_damage = 5.0
-const bullet_path = preload("res://Characters/enemy.tscn")
+const default_bullet_speed = 500.0
+const bullet_path = preload("res://Characters/player_bullet.tscn")
 
 var acceleration = default_acceleration
 var friction = default_friction
 var speed = default_speed
 var damage = default_damage
+var bullet_speed = default_bullet_speed
 
 var can_shoot = true
 
@@ -41,13 +43,16 @@ func movement(delta):
 func cursor_follow():
 	var target = get_global_mouse_position()
 	look_at(target)
+	$BulletPosition.look_at(target)
 
 func shoot():
 	if can_shoot:
 		can_shoot = false
-		var bullet = bullet_path.instance()
+		var direction = position.direction_to(get_global_mouse_position())
+		var bullet = bullet_path.instantiate()
 		get_parent().add_child(bullet)
-		bullet.position = $Node2D.position
+		bullet.position = $BulletPosition.global_position
+		bullet.velocity = direction
 		await(get_tree().create_timer(0.5).timeout)
 		can_shoot = true
 
