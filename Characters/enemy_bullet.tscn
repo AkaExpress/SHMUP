@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dbwsk3yybgfow"]
+[gd_scene load_steps=3 format=3 uid="uid://gwuae73ugqdh"]
 
 [ext_resource type="Texture2D" uid="uid://buhjaatobuq1q" path="res://Sprites/enemy_bullet.png" id="1_x80op"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_448gw"]
-radius = 106.005
+radius = 22.0
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 
@@ -11,5 +11,4 @@ radius = 106.005
 texture = ExtResource("1_x80op")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-11, 3)
 shape = SubResource("CircleShape2D_448gw")
