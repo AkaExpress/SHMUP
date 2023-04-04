@@ -20,12 +20,6 @@ stretch_mode = 1
 [node name="Enemy" parent="." instance=ExtResource("1_giuoa")]
 position = Vector2(213.392, 116.97)
 
-[node name="Player" parent="." instance=ExtResource("2_8taxs")]
-position = Vector2(313, 112)
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
-remote_path = NodePath("../../Camera2D")
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(313, 112)
 scale = Vector2(0.5, 0.5)
@@ -60,3 +54,9 @@ shape = SubResource("RectangleShape2D_qpkvu")
 position = Vector2(9974, 304)
 scale = Vector2(1.72, 17.16)
 shape = SubResource("RectangleShape2D_qpkvu")
+
+[node name="Player" parent="." instance=ExtResource("2_8taxs")]
+position = Vector2(313, 112)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Camera2D")

@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 const default_speed = 250.0
 const default_acceleration = 2400.0

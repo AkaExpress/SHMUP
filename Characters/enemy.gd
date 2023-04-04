@@ -20,5 +20,10 @@ func follow_player(delta):
 	velocity.x = clamp(velocity.x, -speed, speed)
 	velocity.y = clamp(velocity.y, -speed, speed)
 
+func _on_bullet_entered(body):
+	if !body.get_name().contains("PlayerBullet"):
+		return
+	body.queue_free()
+
 func die():
 	queue_free()
