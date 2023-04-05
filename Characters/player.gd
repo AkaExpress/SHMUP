@@ -1,8 +1,8 @@
 extends CharacterBody2D
 class_name Player
 
-const default_speed = 250.0
-const default_acceleration = 2400.0
+const default_speed = 200.0
+const default_acceleration = 1200.0
 const default_friction = 0.05
 const default_damage = 5.0
 const default_bullet_speed = 500.0

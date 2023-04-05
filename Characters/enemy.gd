@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-@export var speed = 125.0
-@export var acceleration = 2400.0
+@export var speed = 100.0
+@export var acceleration = 800.0
 @export var friction = 0.05
 
 func _physics_process(delta):
@@ -21,8 +21,9 @@ func follow_player(delta):
 	velocity.y = clamp(velocity.y, -speed, speed)
 
 func _on_bullet_entered(body):
-	if !body.get_name().contains("PlayerBullet"):
+	if !body is PlayerBullet:
 		return
+	$HealthManager.hit(body.damage)
 	body.queue_free()
 
 func die():

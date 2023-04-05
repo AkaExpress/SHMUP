@@ -3,13 +3,14 @@
 [ext_resource type="Texture2D" uid="uid://buhjaatobuq1q" path="res://Sprites/enemy_bullet.png" id="1_x80op"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_448gw"]
-radius = 22.0
+radius = 21.0238
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_x80op")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_448gw")
-disabled = true

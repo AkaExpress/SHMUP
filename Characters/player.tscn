@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://7g1l7egnaet0"]
+[gd_scene load_steps=6 format=3 uid="uid://7g1l7egnaet0"]
 
 [ext_resource type="Script" path="res://Characters/player.gd" id="1_x8dur"]
 [ext_resource type="Script" path="res://health.gd" id="3_bqea0"]
@@ -6,8 +6,11 @@
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_42k4f"]
 load_path = "res://.godot/imported/Circle.png-0c45e21435093ae348e4b37cb96ba5fa.ctex"
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_kn7h4"]
+radius = 96.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_3cekh"]
-radius = 90.0222
+radius = 92.0
 
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)
@@ -24,10 +27,11 @@ script = ExtResource("3_bqea0")
 position = Vector2(202, 0)
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_3cekh")
-debug_color = Color(0, 0.6, 0.701961, 0.419608)
+shape = SubResource("CircleShape2D_kn7h4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_3cekh")
