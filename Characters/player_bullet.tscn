@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Characters/player_bullet.gd" id="1_7nb4e"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_448gw"]
-radius = 21.0238
+radius = 10.198
 
 [node name="PlayerBullet" type="CharacterBody2D"]
 collision_layer = 2
@@ -12,6 +12,7 @@ collision_mask = 2
 script = ExtResource("1_7nb4e")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_0mm2i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
