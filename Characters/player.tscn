@@ -7,17 +7,17 @@
 load_path = "res://.godot/imported/Circle.png-0c45e21435093ae348e4b37cb96ba5fa.ctex"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kn7h4"]
-radius = 96.0
+radius = 48.0416
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3cekh"]
-radius = 92.0
+radius = 46.0
 
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_x8dur")
 
 [node name="Circle" type="Sprite2D" parent="."]
-position = Vector2(2.98023e-07, -2.98023e-07)
+scale = Vector2(0.5, 0.5)
 texture = SubResource("CompressedTexture2D_42k4f")
 
 [node name="HealthManager" type="Node" parent="."]

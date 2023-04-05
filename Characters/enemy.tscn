@@ -5,17 +5,17 @@
 [ext_resource type="Script" path="res://health.gd" id="3_bxis0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wrrep"]
-radius = 96.0
+radius = 72.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3cekh"]
-radius = 92.0
+radius = 68.0
 
 [node name="Enemy" type="CharacterBody2D"]
 scale = Vector2(0.25, 0.25)
 script = ExtResource("1_gnhln")
 
 [node name="Circle" type="Sprite2D" parent="."]
-position = Vector2(2.98023e-07, -2.98023e-07)
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("2_p68ng")
 
 [node name="HealthManager" type="Node" parent="."]
