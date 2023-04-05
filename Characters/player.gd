@@ -4,7 +4,7 @@ class_name Player
 const default_speed = 200.0
 const default_acceleration = 1200.0
 const default_friction = 0.05
-const default_damage = 5.0
+const default_damage = 10.0
 const default_bullet_speed = 500.0
 const bullet_path = preload("res://Characters/player_bullet.tscn")
 
