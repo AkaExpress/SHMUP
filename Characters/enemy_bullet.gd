@@ -16,7 +16,10 @@ func _ready():
 
 func _physics_process(delta):
 	for body in get_colliding_bodies():
-		bullet_health -= delta * body.damage
+		if body.get("damage"):
+			bullet_health -= delta * body.damage
+		else:
+			bullet_health -= delta * 5
 	if bullet_health <= 0:
 		queue_free()
 

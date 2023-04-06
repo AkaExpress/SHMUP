@@ -8,10 +8,11 @@
 radius = 21.0238
 
 [node name="EnemyBullet" type="RigidBody2D"]
-mass = 0.25
+mass = 0.05
 gravity_scale = 0.0
 max_contacts_reported = 5
 contact_monitor = true
+lock_rotation = true
 script = ExtResource("1_t3p43")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
