@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dbwsk3yybgfow"]
+[gd_scene load_steps=5 format=3 uid="uid://dbwsk3yybgfow"]
 
 [ext_resource type="Script" path="res://Characters/enemy_bullet.gd" id="1_t3p43"]
 [ext_resource type="Texture2D" uid="uid://buhjaatobuq1q" path="res://Sprites/enemy_bullet.png" id="1_x80op"]
+[ext_resource type="Texture2D" uid="uid://cpsfhcogpbckx" path="res://Sprites/Light.png" id="3_51lnw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_448gw"]
 radius = 21.0238
@@ -18,3 +19,10 @@ texture = ExtResource("1_x80op")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_448gw")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(0.75, 0.75)
+color = Color(0.8, 0.25098, 0.25098, 1)
+shadow_enabled = true
+shadow_item_cull_mask = 7
+texture = ExtResource("3_51lnw")
