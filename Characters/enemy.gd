@@ -5,6 +5,7 @@ const default_speed = 100.0
 const default_acceleration = 800.0
 const default_friction = 0.05
 const default_damage = 5.0
+const default_reload_time = 0.75
 const default_bullet_speed = 150.0
 const default_bullet_health = 0.3
 const bullet_path = preload("res://Characters/enemy_bullet.tscn")
@@ -13,6 +14,7 @@ var acceleration = default_acceleration
 var friction = default_friction
 var speed = default_speed
 var damage = default_damage
+var reload_time = default_reload_time
 var bullet_speed = default_bullet_speed
 var bullet_health = default_bullet_health
 
@@ -71,7 +73,7 @@ func shoot():
 		get_parent().add_child(bullet)
 		bullet.position = $BulletPosition.global_position
 		bullet.velocity = direction
-		await(get_tree().create_timer(0.5).timeout)
+		await(get_tree().create_timer(reload_time).timeout)
 		can_shoot = true
 
 func die():
