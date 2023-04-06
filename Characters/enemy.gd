@@ -6,7 +6,7 @@ const default_acceleration = 800.0
 const default_friction = 0.05
 const default_damage = 5.0
 const default_bullet_speed = 300.0
-const default_bullet_health = 1.0
+const default_bullet_health = 0.5
 const bullet_path = preload("res://Characters/enemy_bullet.tscn")
 
 var acceleration = default_acceleration
@@ -62,7 +62,6 @@ func _on_bullet_entered(body):
 	$HealthManager.hit(body.damage)
 	aggro = true
 	forced_aggro = true
-	body.queue_free()
 
 func shoot():
 	if can_shoot:
@@ -71,7 +70,7 @@ func shoot():
 		var bullet = bullet_path.instantiate()
 		get_parent().add_child(bullet)
 		bullet.position = $BulletPosition.global_position
-		bullet.velocity = direction
+		bullet.apply_central_impulse(direction * bullet_speed)
 		await(get_tree().create_timer(0.5).timeout)
 		can_shoot = true
 
