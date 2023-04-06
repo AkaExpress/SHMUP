@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://ews2546a3oot"]
+[gd_scene load_steps=7 format=3 uid="uid://ews2546a3oot"]
 
 [ext_resource type="PackedScene" uid="uid://b0m4apykejoeo" path="res://Characters/enemy.tscn" id="1_giuoa"]
 [ext_resource type="PackedScene" uid="uid://7g1l7egnaet0" path="res://Characters/player.tscn" id="2_8taxs"]
 [ext_resource type="Texture2D" uid="uid://by26361yrecmt" path="res://Sprites/background.png" id="3_b40t4"]
+[ext_resource type="Texture2D" uid="uid://cpsfhcogpbckx" path="res://Sprites/Light.png" id="4_0w7wg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qpkvu"]
 size = Vector2(698.243, 799)
@@ -12,10 +13,11 @@ background_mode = 3
 tonemap_mode = 3
 glow_enabled = true
 glow_levels/2 = 1.0
-glow_levels/3 = 0.0
+glow_levels/3 = 0.5
 glow_levels/5 = 0.0
 glow_bloom = 0.25
 glow_blend_mode = 1
+glow_map = ExtResource("4_0w7wg")
 
 [node name="Main" type="Node2D"]
 

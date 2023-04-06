@@ -28,12 +28,12 @@ func _physics_process(delta):
 	move_and_collide(velocity.normalized() * delta * bullet_speed)
 
 func _on_body_entered(body):
-	if body == self:
+	if body == self or body is EnemyBullet:
 		return
 	colliders.append(body)
 
 func _on_body_exited(body):
-	if body == self:
+	if body == self or body is EnemyBullet:
 		return
 	var index = colliders.find(body)
 	if index >= 0:
