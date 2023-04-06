@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://bgakic0bs6jkb"]
+
+[ext_resource type="Script" path="res://Objects/square.gd" id="1_c3pn3"]
+[ext_resource type="Texture2D" uid="uid://dr6q5x21lb5ca" path="res://Sprites/Square.png" id="2_6qahr"]
+[ext_resource type="Texture2D" uid="uid://cpsfhcogpbckx" path="res://Sprites/Light.png" id="3_51lnw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b8m8s"]
+radius = 21.0238
+
+[node name="Square" type="RigidBody2D"]
+mass = 0.01
+gravity_scale = 0.0
+max_contacts_reported = 5
+contact_monitor = true
+can_sleep = false
+script = ExtResource("1_c3pn3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("2_6qahr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.3, 0.3)
+shape = SubResource("CircleShape2D_b8m8s")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(0.25, 0.25)
+color = Color(1, 0.913725, 0.368627, 1)
+shadow_enabled = true
+shadow_item_cull_mask = 7
+texture = ExtResource("3_51lnw")

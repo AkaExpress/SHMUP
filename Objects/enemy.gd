@@ -7,8 +7,8 @@ const default_friction = 0.05
 const default_damage = 5.0
 const default_reload_time = 0.75
 const default_bullet_speed = 150.0
-const default_bullet_health = 0.3
-const bullet_path = preload("res://Characters/enemy_bullet.tscn")
+const default_bullet_health = 0.25
+const bullet_path = preload("res://Objects/enemy_bullet.tscn")
 
 var acceleration = default_acceleration
 var friction = default_friction
@@ -59,7 +59,7 @@ func follow_player(delta):
 	velocity.y = clamp(velocity.y, -speed, speed)
 
 func _on_bullet_entered(body):
-	if !body is PlayerBullet:
+	if body is Enemy or body is EnemyBullet:
 		return
 	$HealthManager.hit(body.damage)
 	aggro = true

@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://7g1l7egnaet0"]
+[gd_scene load_steps=6 format=3 uid="uid://bl7sarkvhbfcl"]
 
-[ext_resource type="Script" path="res://Characters/player.gd" id="1_x8dur"]
-[ext_resource type="Script" path="res://health.gd" id="3_bqea0"]
+[ext_resource type="Script" path="res://Objects/player.gd" id="1_odj26"]
+[ext_resource type="Script" path="res://health.gd" id="2_5elwo"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_42k4f"]
 load_path = "res://.godot/imported/Circle.png-0c45e21435093ae348e4b37cb96ba5fa.ctex"
@@ -16,14 +16,14 @@ radius = 46.0
 scale = Vector2(0.5, 0.5)
 collision_layer = 5
 collision_mask = 5
-script = ExtResource("1_x8dur")
+script = ExtResource("1_odj26")
 
 [node name="Circle" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 texture = SubResource("CompressedTexture2D_42k4f")
 
 [node name="HealthManager" type="Node" parent="."]
-script = ExtResource("3_bqea0")
+script = ExtResource("2_5elwo")
 
 [node name="BulletPosition" type="Node2D" parent="."]
 position = Vector2(108, 0)

@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://b0m4apykejoeo"]
+[gd_scene load_steps=6 format=3 uid="uid://c73p06yyuwahr"]
 
-[ext_resource type="Script" path="res://Characters/enemy.gd" id="1_gnhln"]
-[ext_resource type="Texture2D" uid="uid://b5th1fg5rv358" path="res://Sprites/Enemy.png" id="2_p68ng"]
-[ext_resource type="Script" path="res://health.gd" id="3_bxis0"]
+[ext_resource type="Script" path="res://Objects/enemy.gd" id="1_ygsul"]
+[ext_resource type="Texture2D" uid="uid://b5th1fg5rv358" path="res://Sprites/Enemy.png" id="2_yr1dy"]
+[ext_resource type="Script" path="res://health.gd" id="3_jsx2g"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wrrep"]
 radius = 72.0
@@ -12,14 +12,14 @@ radius = 68.0
 
 [node name="Enemy" type="CharacterBody2D"]
 scale = Vector2(0.25, 0.25)
-script = ExtResource("1_gnhln")
+script = ExtResource("1_ygsul")
 
 [node name="Circle" type="Sprite2D" parent="."]
 scale = Vector2(0.75, 0.75)
-texture = ExtResource("2_p68ng")
+texture = ExtResource("2_yr1dy")
 
 [node name="HealthManager" type="Node" parent="."]
-script = ExtResource("3_bxis0")
+script = ExtResource("3_jsx2g")
 
 [node name="Area2D" type="Area2D" parent="."]
 disable_mode = 2

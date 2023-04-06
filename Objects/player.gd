@@ -7,8 +7,8 @@ const default_friction = 0.05
 const default_damage = 10.0
 const default_reload_time = 0.25
 const default_bullet_speed = 300.0
-const default_bullet_health = 0.3
-const bullet_path = preload("res://Characters/player_bullet.tscn")
+const default_bullet_health = 0.25
+const bullet_path = preload("res://Objects/player_bullet.tscn")
 
 var acceleration = default_acceleration
 var friction = default_friction
@@ -62,7 +62,7 @@ func shoot():
 		can_shoot = true
 
 func _on_bullet_entered(body):
-	if !body is EnemyBullet:
+	if body is Player or body is PlayerBullet:
 		return
 	$HealthManager.hit(body.damage)
 
