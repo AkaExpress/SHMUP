@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dbwsk3yybgfow"]
+[gd_scene load_steps=6 format=3 uid="uid://dbwsk3yybgfow"]
 
 [ext_resource type="Script" path="res://Characters/enemy_bullet.gd" id="1_t3p43"]
 [ext_resource type="Texture2D" uid="uid://buhjaatobuq1q" path="res://Sprites/enemy_bullet.png" id="1_x80op"]
@@ -7,10 +7,11 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_448gw"]
 radius = 21.0238
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ipd21"]
+radius = 23.3333
+
 [node name="CharacterBody2D" type="CharacterBody2D"]
 scale = Vector2(0.3, 0.3)
-collision_layer = 2
-collision_mask = 2
 floor_block_on_wall = false
 script = ExtResource("1_t3p43")
 
@@ -26,3 +27,10 @@ color = Color(0.8, 0.25098, 0.25098, 1)
 shadow_enabled = true
 shadow_item_cull_mask = 7
 texture = ExtResource("3_51lnw")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_ipd21")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_bullet_entered"]

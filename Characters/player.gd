@@ -6,6 +6,7 @@ const default_acceleration = 1200.0
 const default_friction = 0.05
 const default_damage = 10.0
 const default_bullet_speed = 500.0
+const default_bullet_health = 1.0
 const bullet_path = preload("res://Characters/player_bullet.tscn")
 
 var acceleration = default_acceleration
@@ -13,6 +14,7 @@ var friction = default_friction
 var speed = default_speed
 var damage = default_damage
 var bullet_speed = default_bullet_speed
+var bullet_health = default_bullet_health
 
 var can_shoot = true
 
