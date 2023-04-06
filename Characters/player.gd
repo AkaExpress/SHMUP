@@ -57,3 +57,8 @@ func shoot():
 		await(get_tree().create_timer(0.5).timeout)
 		can_shoot = true
 
+func _on_bullet_entered(body):
+	if !body is EnemyBullet:
+		return
+	$HealthManager.hit(body.damage)
+	body.queue_free()

@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Enemy
 
 const default_speed = 100.0
 const default_acceleration = 800.0
@@ -13,6 +14,7 @@ var speed = default_speed
 var damage = default_damage
 var bullet_speed = default_bullet_speed
 
+var can_shoot = true
 var forced_aggro = false
 var aggro = false
 
@@ -41,6 +43,7 @@ func aggro_checks():
 func follow_player(delta):
 	var target = get_parent().get_node("Player").position
 	if aggro:
+		shoot()
 		look_at(target)
 	if position.distance_to(target) > 300 and aggro:
 		velocity += position.direction_to(target) * acceleration * delta
@@ -58,6 +61,17 @@ func _on_bullet_entered(body):
 	aggro = true
 	forced_aggro = true
 	body.queue_free()
+
+func shoot():
+	if can_shoot:
+		can_shoot = false
+		var direction = position.direction_to($BulletPosition.global_position)
+		var bullet = bullet_path.instantiate()
+		get_parent().add_child(bullet)
+		bullet.position = $BulletPosition.global_position
+		bullet.velocity = direction
+		await(get_tree().create_timer(0.5).timeout)
+		can_shoot = true
 
 func die():
 	queue_free()
