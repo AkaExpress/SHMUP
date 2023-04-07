@@ -1,13 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c45hjt2m63lw0"]
+[gd_scene load_steps=4 format=3 uid="uid://c45hjt2m63lw0"]
 
 [ext_resource type="Script" path="res://Objects/enemy_bullet.gd" id="1_y1dfi"]
 [ext_resource type="Texture2D" uid="uid://buhjaatobuq1q" path="res://Sprites/enemy_bullet.png" id="2_vlcf3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qox0m"]
 radius = 6.5
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_7uoea"]
-radius = 6.6
 
 [node name="EnemyBullet" type="CharacterBody2D"]
 script = ExtResource("1_y1dfi")
@@ -18,11 +15,3 @@ texture = ExtResource("2_vlcf3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_qox0m")
-
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_7uoea")
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_body_exited"]

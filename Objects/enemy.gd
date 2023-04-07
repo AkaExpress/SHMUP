@@ -7,7 +7,8 @@ const default_friction = 0.05
 const default_damage = 5.0
 const default_reload_time = 0.75
 const default_bullet_speed = 150.0
-const default_bullet_health = 0.25
+const default_bullet_penetration = 0.5
+const default_resistance = 1
 const bullet_path = preload("res://Objects/enemy_bullet.tscn")
 
 var acceleration = default_acceleration
@@ -16,7 +17,8 @@ var speed = default_speed
 var damage = default_damage
 var reload_time = default_reload_time
 var bullet_speed = default_bullet_speed
-var bullet_health = default_bullet_health
+var bullet_penetration = default_bullet_penetration
+var resistance = default_resistance
 
 var can_shoot = true
 var forced_aggro = false
@@ -64,6 +66,8 @@ func _on_bullet_entered(body):
 	$HealthManager.hit(body.damage)
 	aggro = true
 	forced_aggro = true
+	if body is PlayerBullet:
+		body.queue_free()
 
 func shoot():
 	if can_shoot:

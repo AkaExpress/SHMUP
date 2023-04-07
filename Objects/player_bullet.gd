@@ -3,39 +3,26 @@ class_name PlayerBullet
 
 var player
 var bullet_speed
-var max_bullet_health
-var bullet_health
+var bullet_penetration
+var resistance
 var damage 
-
-var colliders = []
 
 func _ready():
 	player = Player.new()
 	bullet_speed = player.bullet_speed
-	max_bullet_health = player.bullet_health
-	bullet_health = player.bullet_health
+	bullet_penetration = player.bullet_penetration
+	resistance = player.resistance
 	damage = player.damage
 
 func _physics_process(delta):
-	for body in colliders:
-		if !body:
-			continue
-		if body.get("damage"):
-			bullet_health -= delta * body.damage
-		else:
-			bullet_health -= delta * 5
-	if bullet_health <= 0:
-		queue_free()
-	move_and_collide(velocity.normalized() * delta * bullet_speed)
+	var motion = move_and_collide(velocity.normalized() * delta * bullet_speed)
+	if motion:
+		if motion.get_collider():
+			var collider = motion.get_collider()
+			if collider.get("resistance"):
+				if bullet_penetration < collider.resistance:
+					velocity = velocity.bounce(motion.get_normal())
+			else:
+				velocity = velocity.bounce(motion.get_normal())
 
-func _on_body_entered(body):
-	if body == self or body is PlayerBullet:
-		return
-	colliders.append(body)
 
-func _on_body_exited(body):
-	if body == self or body is PlayerBullet:
-		return
-	var index = colliders.find(body)
-	if index >= 0:
-		colliders.remove_at(index)
