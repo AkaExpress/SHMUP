@@ -2,9 +2,7 @@
 
 [ext_resource type="Script" path="res://Objects/player.gd" id="1_odj26"]
 [ext_resource type="Script" path="res://health.gd" id="2_5elwo"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_42k4f"]
-load_path = "res://.godot/imported/Circle.png-0c45e21435093ae348e4b37cb96ba5fa.ctex"
+[ext_resource type="Texture2D" uid="uid://dyaqoqsnaiyf3" path="res://Sprites/Player.png" id="2_ap5ug"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kn7h4"]
 radius = 48.0416
@@ -20,7 +18,7 @@ script = ExtResource("1_odj26")
 
 [node name="Circle" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
-texture = SubResource("CompressedTexture2D_42k4f")
+texture = ExtResource("2_ap5ug")
 
 [node name="HealthManager" type="Node" parent="."]
 script = ExtResource("2_5elwo")
