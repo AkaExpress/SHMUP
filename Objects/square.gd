@@ -10,7 +10,6 @@ func _physics_process(delta):
 			bullet_health -= delta * body.damage
 		else:
 			bullet_health -= delta * 5
-	print("Square " +  str(bullet_health))
 	if bullet_health <= 0:
 		queue_free()
 

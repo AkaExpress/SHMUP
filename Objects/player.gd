@@ -21,6 +21,7 @@ var bullet_penetration = default_bullet_penetration
 var resistance = default_resistance
 
 var can_shoot = true
+var invincible = false
 
 func die():
 	queue_free()
@@ -29,6 +30,7 @@ func _physics_process(delta):
 	cursor_follow()
 	movement(delta)
 	move_and_slide()
+	collisions(delta)
 	if Input.is_action_pressed("shoot"):
 		shoot()
 
@@ -63,10 +65,16 @@ func shoot():
 		await(get_tree().create_timer(reload_time).timeout)
 		can_shoot = true
 
-func _on_bullet_entered(body):
-	if body is Player or body is PlayerBullet:
-		return
-	$HealthManager.hit(body.damage)
-	if body is EnemyBullet:
-		body.queue_free()
+func collisions(delta):
+	if !invincible:
+		for i in get_slide_collision_count():
+			var collision = get_slide_collision(i)
+			var collider = collision.get_collider()
+			if collider.get("damage"):
+				$HealthManager.hit(collider.damage)
+			else:
+				$HealthManager.hit(5)
+			if collider is EnemyBullet:
+				collider.queue_free()
+				
 

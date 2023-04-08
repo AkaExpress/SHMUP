@@ -1,14 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://c73p06yyuwahr"]
+[gd_scene load_steps=5 format=3 uid="uid://c73p06yyuwahr"]
 
 [ext_resource type="Script" path="res://Objects/enemy.gd" id="1_ygsul"]
 [ext_resource type="Texture2D" uid="uid://b5th1fg5rv358" path="res://Sprites/Enemy.png" id="2_yr1dy"]
 [ext_resource type="Script" path="res://health.gd" id="3_jsx2g"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_wrrep"]
-radius = 72.0
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_3cekh"]
-radius = 68.0
+radius = 72.111
 
 [node name="Enemy" type="CharacterBody2D"]
 scale = Vector2(0.25, 0.25)
@@ -21,13 +18,6 @@ texture = ExtResource("2_yr1dy")
 [node name="HealthManager" type="Node" parent="."]
 script = ExtResource("3_jsx2g")
 
-[node name="Area2D" type="Area2D" parent="."]
-disable_mode = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_wrrep")
-debug_color = Color(0, 0.6, 0.701961, 0.478431)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_3cekh")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
@@ -38,5 +28,3 @@ collision_mask = 4
 
 [node name="BulletPosition" type="Node2D" parent="."]
 position = Vector2(148, 0)
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_bullet_entered"]

@@ -22,7 +22,10 @@ func _physics_process(delta):
 			if collider.get("resistance"):
 				if bullet_penetration < collider.resistance:
 					velocity = velocity.bounce(motion.get_normal())
-			else:
-				velocity = velocity.bounce(motion.get_normal())
+				elif collider is EnemyBullet:
+					collider.queue_free()
+		if velocity.length() < 0.25:
+			velocity = velocity.bounce(motion.get_normal())
+
 
 

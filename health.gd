@@ -6,7 +6,7 @@ var health = 100
 
 func hit(damage):
 	health = clampHealth(health - damage)
-	print("Health is " + str(health))
+	print(health)
 
 func clampHealth(health):
 	if (health <= 0):

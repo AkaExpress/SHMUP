@@ -7,7 +7,7 @@ const default_friction = 0.05
 const default_damage = 5.0
 const default_reload_time = 0.75
 const default_bullet_speed = 150.0
-const default_bullet_penetration = 0.5
+const default_bullet_penetration = 1
 const default_resistance = 1
 const bullet_path = preload("res://Objects/enemy_bullet.tscn")
 
@@ -23,11 +23,13 @@ var resistance = default_resistance
 var can_shoot = true
 var forced_aggro = false
 var aggro = false
+var invincible = false
 
 func _physics_process(delta):
 	aggro_checks()
 	follow_player(delta)
 	move_and_slide()
+	collisions(delta)
 
 func aggro_checks():
 	var player = get_parent().get_node("Player")
@@ -60,15 +62,6 @@ func follow_player(delta):
 	velocity.x = clamp(velocity.x, -speed, speed)
 	velocity.y = clamp(velocity.y, -speed, speed)
 
-func _on_bullet_entered(body):
-	if body is Enemy or body is EnemyBullet:
-		return
-	$HealthManager.hit(body.damage)
-	aggro = true
-	forced_aggro = true
-	if body is PlayerBullet:
-		body.queue_free()
-
 func shoot():
 	if can_shoot:
 		can_shoot = false
@@ -79,6 +72,19 @@ func shoot():
 		bullet.velocity = direction
 		await(get_tree().create_timer(reload_time).timeout)
 		can_shoot = true
+
+func collisions(delta):
+	if !invincible:
+		for i in get_slide_collision_count():
+			var collision = get_slide_collision(i)
+			var collider = collision.get_collider()
+			if collider.get("damage"):
+				$HealthManager.hit(collider.damage)
+			else:
+				$HealthManager.hit(5)
+			if collider is PlayerBullet:
+				collider.queue_free()
+				
 
 func die():
 	queue_free()
